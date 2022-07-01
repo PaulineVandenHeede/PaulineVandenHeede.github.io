@@ -2676,17 +2676,17 @@ input, select, textarea {
 			transition: transform 0.2s ease-out;
 		}
 
-		a.image:hover img {
+		a.image.fit:hover img {
 			-moz-transform: scale(1.05);
 			-webkit-transform: scale(1.05);
 			-ms-transform: scale(1.05);
 			transform: scale(1.05);
 		}
-		a.image.round:hover img {
-			-moz-transform: scale(1);
-			-webkit-transform: scale(1);
-			-ms-transform: scale(1);
-			transform: scale(1);
+		a.image.main:hover img {
+			-moz-transform: scale(1.05);
+			-webkit-transform: scale(1.05);
+			-ms-transform: scale(1.05);
+			transform: scale(1.05);
 		}
 
 
