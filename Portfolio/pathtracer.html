@@ -20,20 +20,20 @@
 
         <!-- Header -->
         <header id="header">
-            <a href="../index.html" class="logo">PVH</a>
+            <a href="../index.html" class="logo dark__hover">PVH</a>
         </header>
 
         <!-- Nav -->
         <nav id="nav">
             <ul class="links">
-                <li class="active"><a href="../index.html">Portfolio</a></li>
+                <li class="active dark__hover"><a href="../index.html">Portfolio</a></li>
                 <li><a href="../generic.html">About me</a></li>
                 <li><a href="../elements.html">Contact</a></li>
             </ul>
             <ul class="icons">
-                <li><a href="https://twitter.com/paulinevh98" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="https://www.linkedin.com/in/pauline-vanden-heede-761302182/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                <li><a href="https://github.com/PaulineVandenHeede" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="https://twitter.com/paulinevh98" class="icon brands dark__hover fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.linkedin.com/in/pauline-vanden-heede-761302182/" class="icon brands dark__hover fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/PaulineVandenHeede" class="icon brands dark__hover fa-github"><span class="label">GitHub</span></a></li>
             </ul>
         </nav>
 
@@ -56,11 +56,33 @@
                         The technique that will be used for the rendering algorithm is a combination of the Monte Carlo integration and path tracing. Then the variance reduction techniques, stratified and importance sampling, will be introduced.
                     </p>
                 </header>
-                <h2 class="home__text__middle__page">The project</h2>
+                <h2 class="text__middle__page">The project</h2>
+                <h3>The research process</h3>
+                <p>
+                    For half a year, I had the opportunity to choose my own research project.
+                    As my first love in the game industry is graphics programming; I knew I wanted to do something in this topic, and what intrigued me most about all topics was global illumination. 
+                    Very early on in my research I already had the idea of going towards the direction of offline rendering rather than real time, as this was something I never did before.
+                    With this decision my research became more oriented towards path tracing as this is a commen way to simulate global illumination in an image in a relative easy way.
+                    <br />
+                    The path tracer is a rendering algorithm that tries to solve the rendering equation by tracing paths through the scene.
+                    With this concept it is fairly easy to see that indirect lighting will be accounted for as we bounce around an finite times in the scene.
+                    <br />
+                </p>
+                <h3>Approach</h3>
+                <p></p>
+                <h3>Results</h3>
+                <p>
+                    The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
+                    It can even be said that these techniques are not only more efficient in reducing the noise, but also more efficient in time. 
+                </p>
+
                 <h3>Links</h3>
                 <p>
-                    <li><a href="../DownloadablePDFs/test.pdf">View full paper</a></li>
-                    <li><a href="https://github.com/PaulineVandenHeede/PathTracer">View code base</a></li>
+                    To read and see more details about this research project I kindly refer to my written paper and the accompanied code base about this topic .
+                    <ul class="actions">
+                        <li><a href="../DownloadablePDFs/test.pdf" class="button icon solid button__colour fa-download">Paper</a></li>
+                        <li><a href="../DownloadablePDFs/test.pdf" class="button button__colour primary icon solid  fa-download">Paper 2</a></li>
+                    </ul>
                 </p>
             </section>
 
@@ -88,13 +110,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 </html>
