@@ -38,6 +38,11 @@
     box-shadow: inset 0 0 0 2px var(--default__highlight__colour__dark) !important;
 }
 
+.button__light__hover__colour:hover{
+    color: var(--default__highlight__colour__light) !important;
+    box-shadow: inset 0 0 0 2px var(--default__highlight__colour__light) !important;
+}
+
 /*-- text colour --*/
 .text__colour{
     color: var(--default__colour) !important;
