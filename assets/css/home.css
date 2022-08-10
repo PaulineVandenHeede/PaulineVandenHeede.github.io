@@ -1,8 +1,25 @@
 :root {
-    --default__colour : #10013f;
+    --default__colour: #10013f;
     --default__highlight__colour__light: #ff9026;
     --default__highlight__colour__dark: #2740ff;
-  }
+}
+
+body{
+  color: var(--default__colour) !important;
+}
+
+a{
+  color: var(--default__colour) !important;
+}
+
+#copyright > ul > li > a{
+  color: white !important;
+  opacity: .4;
+}
+
+.links > li > a{
+  color: whitesmoke !important;
+}
 
 .text__middle__page{
     text-align: center;
@@ -85,4 +102,40 @@
 }
 h1{
     color: var(--default__colour) !important;
+}
+
+.icon__blue{
+  color: #717981 !important;
+}
+
+/* --- about me --- */
+
+.aboutMe__discover__container{
+  display: flex;
+  justify-content: center;
+}
+
+.youtube__iframe{
+  width: 100%;
+  max-width: 560px;
+}
+
+/* --- about me --- */
+
+.cubed__myTeam__container{
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.cubed__myTeam__container > article > p{
+  margin-bottom: 10px !important;
+}
+
+.fancy__streepje{
+  border-right: 1px solid lightgrey;
+  height: 100%;
 }
