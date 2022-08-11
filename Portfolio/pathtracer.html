@@ -67,11 +67,26 @@
                     With this decision my research became more oriented towards path tracing as this is a commen way to simulate global illumination in an image in a relative easy way.
                     <br />
                     The path tracer is a rendering algorithm that tries to solve the rendering equation by tracing paths through the scene.
-                    With this concept it is fairly easy to see that indirect lighting will be accounted for as we bounce around an finite times in the scene.
+                    With this concept it is fairly easy to see that indirect lighting will be accounted for as we bounce around an finite number of times in the scene.
                     <br />
+                    The way this rendering algorithm solves the rendering equation is by an estimation as the solution is an endless recursive function. 
+                    Because we need this estimation, we need an understanding of basic statistics and probability theory, as my understanding of these topics were very limited this topic defined another layer in my research.
+                    As we want a result that is correct on average, I implemented the Monte Carlo integration technique.
+                    <br />
+                    A good research quesiton isn't based on a yes or no question, so I needed to find something that I wanted to compare and contrast. 
+                    During my research of the Monte Carlo integration, there was a main topic that was always discussed; the noise in an image.
+                    After a while, I was able to make the connection between variance reduction techniques and noise in an image, as the first tries to solve the second as best as possible.
+                    Resulting in an image with the minimal noise it can produce.
+                    <br />
+                    The goal of this research was to compare these variance reduction techniques on how effective they were. 
+                    This has been tested by benchmarking the variance reduction techniques and by calculating image quality metrics.
+                    <br />
+                    At the end we indeed could see that these variance reduction techniques were effective in both the generated noise and in time.
                 </p>
                 <h3>Approach</h3>
-                <p></p>
+                <p>
+
+                </p>
                 <h3>Results</h3>
                 <p>
                     The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
