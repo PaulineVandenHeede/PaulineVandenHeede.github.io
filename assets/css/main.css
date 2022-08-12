@@ -2903,17 +2903,18 @@ input, select, textarea {
 		border-top-color: #eeeeee;
 	}
 
-	ul.icons li a.icon:hover:before {
-		/* color: #18bfef; */
+	/*ul.icons li a.icon:hover:before {
+		color: #18bfef;
 	}
+	*/
 
 	ul.icons.alt li .icon:before {
 		box-shadow: inset 0 0 0 2px #eeeeee;
 	}
 
-	ul.icons.alt li a.icon:hover:before {
-		/* box-shadow: inset 0 0 0 2px #18bfef; */
-	}
+	/*ul.icons.alt li a.icon:hover:before {
+		 box-shadow: inset 0 0 0 2px #18bfef; 
+	}*/
 
 /* Section/Article */
 
@@ -4634,7 +4635,6 @@ input, select, textarea {
 			right: 0;
 			text-align: right;
 			top: 0;
-			vertical-align: middle;
 			width: 7rem;
 		}
 

@@ -144,3 +144,15 @@ h1{
 img.image__round__corners{
   border-radius: 50% !important;
 }
+
+button.full__story__margin{
+  margin-top: 10px !important;
+}
+
+img.image__resize__with__screen{
+  width: 100% !important;
+}
+
+.background__cubed > div.bg.fixed{
+  background-image: url("../../images/cubed/background.jpg") !important;
+}
