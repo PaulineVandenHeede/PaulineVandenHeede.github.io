@@ -153,6 +153,9 @@ img.image__resize__with__screen{
   width: 100% !important;
 }
 
-.background__cubed > div.bg.fixed{
+.background__cubed > div.bg{
   background-image: url("../../images/cubed/background.jpg") !important;
+	width: 100% !important;
+	height: 100% !important;
+  display: block !important;
 }
