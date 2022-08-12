@@ -2653,10 +2653,6 @@ input, select, textarea {
 				width: 100%;
 			}
 
-			.image.round img {
-				border-radius: 50%;
-			}
-
 		@media screen and (max-width: 736px) {
 
 			.image.fit {
@@ -2666,10 +2662,6 @@ input, select, textarea {
 			.image.main {
 				margin: 2rem 0;
 			}
-
-			.image.round {
-			}
-
 		}
 
 	a.image {

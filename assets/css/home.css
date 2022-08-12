@@ -139,3 +139,8 @@ h1{
   border-right: 1px solid lightgrey;
   height: 100%;
 }
+
+
+img.image__round__corners{
+  border-radius: 50% !important;
+}
