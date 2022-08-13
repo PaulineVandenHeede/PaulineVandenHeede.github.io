@@ -54,35 +54,37 @@
                     </h3>
                     <p>
                         Producing an image that simulates the effect of global illumination with a relative small amount of noise is a difficult task when it comes to having relatively short render times.
-                        It states the need for knowing the effectiveness of variance reduction techniques. These techniques try to reduce the noise in the image without having to increase the amount of samples the rendering algorithm needs to produce an image with relatively little noise.
-                        The technique that will be used for the rendering algorithm is a combination of the Monte Carlo integration and path tracing. Then the variance reduction techniques, stratified and importance sampling, will be introduced.
+                        It states the need for knowing the effectiveness of variance reduction techniques. 
+                        These techniques try to reduce the noise in the image without having to increase the amount of samples the rendering algorithm needs to produce an image with relatively little noise.
+                        The technique that will be used for the rendering algorithm is a combination of the Monte Carlo integration and path tracing. 
+                        Then the variance reduction techniques, stratified and importance sampling, will be introduced.
                     </p>
                 </header>
                 <h2 class="text__middle__page">The project</h2>
                 <h3>The research process</h3>
                 <p>
-                    For half a year, I had the opportunity to choose my own research project.
-                    As my first love in the game industry is graphics programming; I knew I wanted to do something in this topic, and what intrigued me most about all topics was global illumination. 
-                    Very early on in my research I already had the idea of going towards the direction of offline rendering rather than real time, as this was something I never did before.
-                    With this decision my research became more oriented towards path tracing as this is a commen way to simulate global illumination in an image in a relative easy way.
+                    For half a year, I had the opportunity to do my own research project. 
+                    As my first love in the game industry is graphics programming, I knew I wanted to do something on this topic. 
+                    What intrigued me most out of all the topics, was global illumination. 
+                    Very early on in my research I already had the idea of going in the direction of offline rendering, rather than real time rendering, because it was something I had never done before. 
+                    With this decision, my research became more oriented towards path tracing, as this is a commen way to simulate global illumination in an image in a relatively easy way.
                 </p>
                 <p>
-                    The path tracer is a rendering algorithm that tries to solve the rendering equation by tracing paths through the scene.
+                    The path tracer is a rendering algorithm that tries to solve the rendering equation by tracing paths through the scene. 
                     With this concept it is fairly easy to see that indirect lighting will be accounted for as we bounce around an finite number of times in the scene.
                     <br />
-                    The way this rendering algorithm solves the rendering equation is by an estimation as the solution is an endless recursive function. 
-                    Because we need this estimation, we need an understanding of basic statistics and probability theory, as my understanding of these topics were very limited this topic defined another layer in my research.
-                    As we want a result that is correct on average, I implemented the Monte Carlo integration technique.
+                    The way this rendering algorithm solves the rendering equation is by an estimation, as the solution is an endless recursive function. 
+                    Because we need this estimation, we need an understanding of basic statistics and probability theory. My understanding of these topics were very limited when starting my research, which defined another layer of the project. 
+                    As it is preferred to have a result that is correct on average, I implemented the Monte Carlo integration technique.
                     <br />
-                    A good research quesiton isn't based on a yes or no question, so I needed to find something that I wanted to compare and contrast. 
-                    During my research of the Monte Carlo integration, there was a main topic that was always discussed; the noise in an image.
-                    After a while, I was able to make the connection between variance reduction techniques and noise in an image, as the first tries to solve the second as best as possible.
-                    Resulting in an image with the minimal noise it can produce.
+                    Also, a good research question isn't based on a yes or no question, so I needed to find something that I wanted to compare and contrast. 
+                    During my research of the Monte Carlo integration, there was a certain topic that was always discussed: the noise in an image. 
+                    After further research, I was able to make the connection between variance reduction techniques and the noise in an image, as the first tries to solve the second in the best way possible. 
+                    This then results in an image with minimal noise production.
                     <br />
-                    The goal of this research was to compare these variance reduction techniques on how effective they were. 
-                    This has been tested by benchmarking the variance reduction techniques and by calculating image quality metrics.
-                    <br />
-                    At the end we indeed could see that these variance reduction techniques were effective in both the generated noise and in time.
+                    The goal of this research was to compare these variance reduction techniques to how effective these techniques were. 
+                    This has been tested by benchmarking the variance reduction techniques and by calculating image quality metrics. 
+                    I was able to conclude that we can indeed see that these variance reduction techniques were effective in both generated noise and in time.
                 </p>
                 <h3>Approach</h3>
                 <p>
