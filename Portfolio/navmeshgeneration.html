@@ -45,36 +45,105 @@
             <!-- Post -->
             <section class="post">
                 <header class="major">
-                    <span class="date">Date</span>
+                    <span class="date">August 25, 2022</span>
                     <h1>
-                        Title
+                        Navigation Mesh Generation
                     </h1>
                     <h3>
                         Abstract
                     </h3>
                     <p>
-                        abstract text.
+                        In this project I did research for generating a navigation mesh. 
+                        This requires a lot of knowledge about computational algorithms in C++, of which the biggest subject was the boolean operations on polygons.
                     </p>
                 </header>
                 <h2 class="text__middle__page">The project</h2>
+                <h3>Introduction</h3>
+                <p>
+                    For most game environments it's easily predictable where objects can and can't move. 
+                    With this information we can create a set of geometry to describe the walkable surface of a 3D environment, called a navigation mesh (nav mesh).
+                    The geometry of a nav mesh is build out of a set of convex polygons, this can be triangles or quadrilaterals, the latter giving a more compact and convenient representation.
+                    <br />
+                    There are different approaches to the generation of navigation meshes.
+                    <ol>
+                        <li>
+                            Manually creating the navigation mesh. 
+                            Manually creating a navigation mesh is done by a level designer in a level editor.
+                            This mesh then gets loaded into the game and can directly be used.
+                        </li>
+                        <li>
+                            Generating the navigation mesh. In this method the raw game geometry is used to build a navigation mesh through code.
+                        </li>
+                        <li>
+                            Combination of manually creating and generating the navigation mesh.
+                        </li>
+                    </ol>
+                    To get an optimal navigation mesh, our navigation mesh needs to meet some requirements. 
+                    The first requirement tells us that the polygons of which the navigation mesh is made need to be convex, as mentioned before.
+                    The reason why these need to be convex is simple. 
+                    This is the only way our navigation mesh can guarantee that an agent inside the polygon can reach any other point inside the polygon in a straight line without colliding with the environment. 
+                    This gives us the big advantage of fewer expensive collision checks with the environment. 
+                    Secondly, as we only can go out from the given raw game geometry our navigation mesh generator needs to be robust in handling degeneracy.
+                    We cannot expect that data is given in a certain format that aids the generator. 
+                    This means that we need to have a way to handle incomplete data or data that is different than we expect. 
+                    If we do not want to go this route we need to query all the elements in the game environment with a certain flag set; e.g. elite engine navigation mesh Other requirements of the navigation mesh are simplicity, completeness and consistent.
+                    We want our navigation mesh to have as few polygons as possible that covers the whole area where an AI can go and that there is no randomness, any equal map should have an equal outcome.
+                </p>
                 <h3>The research process</h3>
                 <p>
-                    text.
-                </p>
-                <h3>Approach</h3>
-                <p>
-                    text.
+                    When the algorithm is building a navigation mesh this always happens in a few steps.
+                    <ol>
+                        <li>Merge the walkable polygons.</li>
+                        <li>Expand obstacles with player radius.</li>
+                        <li>Subtract obstacles from walkable polygons.</li>
+                        <li>Triangulate the result polygon.</li>
+                    </ol>
+                    Because of this algorithm it can be made clear that we need knowledge of a few topics. 
+                    Most of this topics reside in the field of computational geometry or Art Gallery theorems.
+                    <ol>
+                        <li>Boolean operations on polygons</li>
+                        <li>Expansion of polygons</li>
+                        <li>Triangulation of polygons</li>
+                    </ol>
+                    All topics will be discussed and implemented on their own, so that they can be used by a navigation mesh generator.
                 </p>
                 <h3>Results</h3>
+                <h4>Expanding of polygons</h4>
                 <p>
-                    text.
+                    When we want to subtract the obstacles of a level from the generation map, we need to take into acount the player radius because we do not want the player to be able to go half into these obstacles. 
+                    For this we need an algortihm to expand the obstacle polygons.
+                    For this there were 2 methods I could think of. 
+                    One only is applicable to orthogonal polygons and the other is an extension of the first one so that this can include non-orthogonal polygons.
+                    As a result at the left, we have our first solution executed on a non orthogonal polygon. In the middle; the second solution. 
+                    And at the right, both displayed on top of each other to have a good view for comparison.
+                    <div class="box alt">
+                        <div class="row gtr-50 gtr-uniform">
+                            <div class="col-4"><span class="image fit"><img src="../images/nav_mesh_generation/expanded_non_orthogonal_polygon.png" alt="" /></span></div>
+                            <div class="col-4"><span class="image fit"><img src="../images/nav_mesh_generation/expanded_non_orthogonal_polygon_correct.png" alt="" /></span></div>
+                            <div class="col-4"><span class="image fit"><img src="../images/nav_mesh_generation/expanded_non_orthogonal_polygon_comparison.png" alt="" /></span></div>
+                        </div>
+                    </div>
                 </p>
+                <h4>Merging of polygons</h4>
+                <p>
+
+                </p>
+                <h3>Resources</h3>
+                <ol>
+                    <li>J. O’Rourke, Computational Geometry in C, 2nd ed. 2021, isbn: 9780511804120</li>
+                    <li>“Intersection point of lines.” (), [Online]. Available: https://cp-algorithms.com/geometry/
+                        lines-intersection.html.</li>
+                    <li>J. O'Rourke, Art Gallery Theorems and Aglorithms, 1987, isbn: 0-19-503965-3</li>
+                    <li>F. Martínez, C. Ogayar, J. R. Jiménez, and A. J. Rueda, “A simple algorithm for boolean
+                        operations on polygons,” Advances in Engineering Software, vol. 64, pp. 11–19, Oct. 2013, issn:
+                        0965-9978. doi: 10.1016/J.ADVENGSOFT.2013.04.004</li>
+                </ol>
 
                 <h3>Links</h3>
                 <p>
                     To read and see more details about what I learned in this project I kindly refer to my written article and the accompanied code base about this topic .
                     <ul class="actions">
-                        <li><a href="../DownloadablePDFs/test.pdf" class="button icon solid button__colour fa-download">Article</a></li>
+                        <li><a href="../DownloadablePDFs/paper_navigation_mesh_generation.pdf" class="button icon solid button__colour primary fa-download">Article</a></li>
                         <li><a href="https://github.com/PaulineVandenHeede/NavigationMeshGeneration" class="button button__colour primary icon solid  fa-download">Code base</a></li>
                     </ul>
                 </p>
