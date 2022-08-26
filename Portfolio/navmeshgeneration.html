@@ -115,7 +115,7 @@
                     For this there were 2 methods I could think of. 
                     One only is applicable to orthogonal polygons and the other is an extension of the first one so that this can include non-orthogonal polygons.
                     As a result at the left, we have our first solution executed on a non orthogonal polygon. In the middle; the second solution. 
-                    And at the right, both displayed on top of each other to have a good view for comparison.
+                    And at the right, both displayed on top of each other to have a good view for comparison. For more details about how this is implemented, I kindly refer to my article, downloadable at the bottom of this page.
                     <div class="box alt">
                         <div class="row gtr-50 gtr-uniform">
                             <div class="col-4"><span class="image fit"><img src="../images/nav_mesh_generation/expanded_non_orthogonal_polygon.png" alt="" /></span></div>
@@ -126,7 +126,24 @@
                 </p>
                 <h4>Merging of polygons</h4>
                 <p>
-
+                    To be able to merge polygons, there needs to be a way to find the intersections of 2 polygons. This is done by the sweep algorihtm.
+                    In this algorithm we go from left to right and find all intersections with edges from other polygons.
+                    Then depending on the boolean operations, vertices get selected to be part of the result polygon.
+                    <span class="image left"><img src="../images/nav_mesh_generation/BooleanOperations.png" alt="" /></span>
+                    <br/>
+                    <b>AND operation</b><br/>
+                    For the and operation we want to select the vertices that are part of the most outer circumference.
+                    This means vertices that are lying inside another polygon are deselected.
+                    <br/>
+                    <b>MINUS oepration</b><br/>
+                    For the minus operation we want to select the vertices that are of the base polygon that are not in the other polygon and the vertices of the other polygon that are in the base polygon.
+                    <br />
+                    After this we will construct the remaining polygon.
+                </p>
+                <h4>Triangulation of polygons</h4>
+                <p>
+                    For a navigation mesh it is essential that we can navigate around the walkable polygon, the easiest way to do is creating points on which we can implement pathfinding.
+                    But to be able to do this, we need to split up our polygon so that we can define points for the path finding algorithm, this is done by triangulation.
                 </p>
                 <h3>Resources</h3>
                 <ol>
@@ -137,6 +154,7 @@
                     <li>F. Martínez, C. Ogayar, J. R. Jiménez, and A. J. Rueda, “A simple algorithm for boolean
                         operations on polygons,” Advances in Engineering Software, vol. 64, pp. 11–19, Oct. 2013, issn:
                         0965-9978. doi: 10.1016/J.ADVENGSOFT.2013.04.004</li>
+                    <li>Own mathematical knowledge used for solution based thinking.</li>
                 </ol>
 
                 <h3>Links</h3>

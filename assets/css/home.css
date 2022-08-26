@@ -159,3 +159,8 @@ img.image__resize__with__screen{
 	height: 100% !important;
   display: block !important;
 }
+
+img.image_centered{
+  display: flex;
+  justify-content: center;
+}
