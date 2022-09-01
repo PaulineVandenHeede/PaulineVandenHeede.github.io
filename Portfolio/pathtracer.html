@@ -53,11 +53,12 @@
                         Abstract
                     </h3>
                     <p>
-                        Producing an image that simulates the effect of global illumination with a relative small amount of noise is a difficult task when it comes to having relatively short render times.
+                        Producing an image that simulates the effect of global illumination with a relative small amount of noise is a difficult task when it comes to having relatively short render times. 
                         It states the need for knowing the effectiveness of variance reduction techniques. 
-                        These techniques try to reduce the noise in the image without having to increase the amount of samples the rendering algorithm needs to produce an image with relatively little noise.
+                        Variance reduction techniques try to reduce the noise in the image without having to increase the amount of samples the rendering algorithm needs to produce an image. 
                         The technique that will be used for the rendering algorithm is a combination of the Monte Carlo integration and path tracing. 
-                        Then the variance reduction techniques, stratified and importance sampling, will be introduced.
+                        Then the variance reduction techniques, stratified and importance sampling, will be introduced. 
+                        At the end it will be proven that these variance reduction techniques are effective in rendering images with less noise without needing extra samples and with a similar render time.
                     </p>
                 </header>
                 <h2 class="text__middle__page">The project</h2>
@@ -88,8 +89,19 @@
                 </p>
                 <h3>Approach</h3>
                 <p>
-
+                    Yielding images that are physically plausible and visually pleasing wiht respect to global illumination is the ultimate goal of this research.
+                    To understand everything that is needed to generate an image like this, we need to take a deeper dive into the concepts of light and the techniques behind the rendering algorihm.
+                    For this I would like to refer to my detailed paper about this topic. In this paper the folling topics will be discussed:
+                    <ul>
+                        <li>A model for capturing light to be able to display it on an image.</li>
+                        <li>a model for materials with which light interacts.</li>
+                        <li>A model to capture the objects in the scene.</li>
+                    </ul>
                 </p>
+                <p>
+                    As my paper had a lot of mathematical formulas I used the latex editor overleaf to write it.
+                </p>
+                <h4>Sampling</h4>
                 <h3>Results</h3>
                 <p>
                     The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
