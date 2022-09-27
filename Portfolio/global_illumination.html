@@ -29,7 +29,7 @@
                 <li class="active dark__hover"><a href="../index.html">Portfolio</a></li>
                 <li><a href="../blog.html">Blog</a></li>
                 <li><a href="../aboutme.html">About me</a></li>
-                <li><a href="../DownloadablePDFs/Pauline_Vanden_Heede_Resume.pdf">Resume</a></li>
+                <li><a href="../PDFs/Pauline_Vanden_Heede_Resume.pdf">Resume</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
             <ul class="icons">
@@ -72,6 +72,7 @@
                     With this decision, my research became more oriented towards path tracing, as this is a commen way to simulate global illumination in an image in a relatively easy way.
                 </p>
                 <p>
+                    <span class="image right image__center__paragraph"><img src="../images/global_illumination/research_process.png" class="" alt="research process image" /></span>
                     The path tracer is a rendering algorithm that tries to solve the rendering equation by tracing paths through the scene. 
                     With this concept it is fairly easy to see that indirect lighting will be accounted for as we bounce around an finite number of times in the scene.
                     <br />
@@ -92,7 +93,7 @@
                 <p>
                     Yielding images that are physically plausible and visually pleasing wiht respect to global illumination is the ultimate goal of this research.
                     To understand everything that is needed to generate an image like this, we need to take a deeper dive into the concepts of light and the techniques behind the rendering algorihm.
-                    For this I would like to refer to my detailed paper about this topic. In this paper the folling topics will be discussed:
+                    For this I would like to refer to my detailed paper about this topic, where the following topics are discussed: 
                     <ul>
                         <li>A model for capturing light to be able to display it on an image.</li>
                         <li>a model for materials with which light interacts.</li>
@@ -100,11 +101,20 @@
                     </ul>
                 </p>
                 <p>
-                    As my paper had a lot of mathematical formulas I used the latex editor overleaf to write it.
+                    As my paper had a lot of mathematical formulas I used a latex editor overleaf to write it.
                 </p>
-                <h4>Sampling</h4>
                 <h3>Results</h3>
+                <h4>Beauty Render</h4>
                 <p>
+                    <img class="image__resize__with__screen image_centered" src="../images/global_illumination/beauty_render.jpg" alt="" width="400" height="400"/>
+                </p>
+                <h4>Render times</h4>
+                <p>
+                    <span class="image"><img class="image__resize__with__screen image_centered" src="../images/global_illumination/render_times.png" alt="" /></span>
+                </p>
+                <h4>Image Quality</h4>
+                <p>
+                    <span class="image"><img class="image__resize__with__screen image_centered" src="../images/global_illumination/image_quality.png" alt="" /></span>
                     The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
                     It can even be said that these techniques are not only more efficient in reducing the noise, but also more efficient in time. 
                 </p>
@@ -113,7 +123,7 @@
                 <p>
                     To read and see more details about this research project I kindly refer to my written paper and the accompanied code base about this topic .
                     <ul class="actions">
-                        <li><a href="../DownloadablePDFs/test.pdf" class="button icon solid button__colour fa-download">Paper</a></li>
+                        <li><a href="../PDFs/pvh_paper_global_illumination.pdf" class="button icon solid button__colour button__dark__hover__colour fa-download">Paper</a></li>
                         <li><a href="https://github.com/PaulineVandenHeede/PathTracer" class="button button__colour primary icon solid brands alt fa-github">Repository</a></li>
                     </ul>
                 </p>
