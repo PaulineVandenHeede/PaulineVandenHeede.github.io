@@ -99,24 +99,79 @@
                         <li>a model for materials with which light interacts.</li>
                         <li>A model to capture the objects in the scene.</li>
                     </ul>
+                    To be able to understand the Monte Carlo Integration we need a profound knowledge of statistics. Following topics are very important:
+                    <ul>
+                        <li>What are random variables.</li>
+                        <li>What is the probability density function (PDF)</li>
+                        <li>What is the variance of the PDF.</li>
+                        <li>What is the Monte Carlo Method and estimator.</li>
+                    </ul>
+                    All these topics are in depth discussed in the paper, that can be found at the bottom of this page.
+                    For the variance reduction techniques there was knowledge needed about sampling, and thus sampling theory.
+                    <ul>
+                        <li>Which sampling function do we use.</li>
+                        <li>Different techniques of sampling.</li>
+                    </ul>
+                    These different sampling techniques directly translate in the variance reduction techniques because these try to make the variance as small as possible.
                 </p>
+                <h3>Technical approach</h3>
                 <p>
-                    As my paper had a lot of mathematical formulas I used a latex editor overleaf to write it.
+                    Software used for this project:
+                    <ul>
+                        <li>Overleaf as latex editor</li>
+                        <li>Visual studio as IDE</li>
+                        <li>Powerpoint to make visuals and graphs</li>
+                    </ul>
+                    The path tracer is written in C++ code in the Elite engine render framework provided by the school (Howest University of Applied Sciences) and is based on the ray tracing books of Peter Shirley.
                 </p>
                 <h3>Results</h3>
+                The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
+                It can even be said that these techniques are not only more efficient in reducing the noise, but also more efficient in time.
+                The results are shortly discussed in the next paragraphs.
                 <h4>Beauty Render</h4>
+                <img class="image right" src="../images/global_illumination/beauty_render.jpg" alt="" width=100% height=100%/>
                 <p>
-                    <img class="image__resize__with__screen image_centered" src="../images/global_illumination/beauty_render.jpg" alt="" width="400" height="400"/>
+                    The image on the left is rendered with 1000 samples per pixel and a 100 depth, it also combines all different variance reduction techniques implemented in the path tracer.
+                    This is also the best result I could get out of my path tracer in a reasonable amount of time.
+                    In the image on the bottom image it can be seen that global illumination is simulated because:
+                    <ul>
+                        <li>Light reflected on the walls (left render).</li>
+                        <li>Light on the objects in the scene (middle render).</li>
+                        <li>Soft shadows that are visible underneath the objects (right render).</li>
+                    </ul>
+                    <img class="image" src="../images/global_illumination/GI_SIMULATION.png" alt="" width=100% height=100%/>
+                    More experiments with their images and  can be found in my paper under section 6 Discussion, such as:
+                    <ul>
+                        <li>High number of samples per pixel vs. a low number of samples per pixel.</li>
+                        <li>High depth number vs. a low depth number.</li>
+                        <li>Comparisons between different sampling strategies.</li>
+                    </ul>
                 </p>
+                
                 <h4>Render times</h4>
                 <p>
-                    <span class="image"><img class="image__resize__with__screen image_centered" src="../images/global_illumination/render_times.png" alt="" /></span>
+                    When looking at the average timing results from the benchmark it can be concluded that these
+                    variance reduction techniques are even better in time. It takes on average less time than
+                    the normal sampling. It can also be seen that stratified sampling on average takes a little bit less time than its counterpart.
+                    <img class="image" src="../images/global_illumination/render_times.png" alt="" width= 100% height=100%/>
                 </p>
-                <h4>Image Quality</h4>
+                <h4>Image Quality Metrics</h4>
                 <p>
                     <span class="image"><img class="image__resize__with__screen image_centered" src="../images/global_illumination/image_quality.png" alt="" /></span>
-                    The experiments together with the results that were reproduced shows that the variance reduction techniques are indeed efficient ways to reduce noise in a rendered image. 
-                    It can even be said that these techniques are not only more efficient in reducing the noise, but also more efficient in time. 
+                    These image quality metrics indicate how good the quality of an image is compared to a reference image.
+                    For the mean squared error (MSE) can be said:
+                    <ul>
+                        <li>Importance sampling has the biggest values due to the hard shadows.</li>
+                        <li>Combination of importance sampling and normal smapling gives significantly smaller values.</li>
+                    </ul>
+                    Then the peak signal-to-noise ratio (PSNR) and signal-to-noise ratio (SNR) give:
+                    <ul>
+                        <li>Importance sampling on it's own has low values this due to the hard shadows that are in the image.</li>
+                        <li>Combination of normal sampling and importance sampling give the highest results, which is better.</li>
+                    </ul>
+                    The last one is the structural similarity index (SSI), which gives results in the same trend as the PSNR and SNR which gives us the same conclusion as with the PSNR and SNR.
+                    <br/><br/>
+                    In general can be said that these variance reduction techniques give a closer simulation to the real world than the pure Monte Carlo integration.
                 </p>
 
                 <h3>Links</h3>

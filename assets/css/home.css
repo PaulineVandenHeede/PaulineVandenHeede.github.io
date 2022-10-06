@@ -162,8 +162,8 @@ img.image__resize__with__screen{
 }
 
 img.image_centered{
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .image__center__paragraph{
