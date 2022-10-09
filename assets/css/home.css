@@ -1,128 +1,141 @@
 :root {
-    --default__colour: #10013f;
-    --default__highlight__colour__light: #ff9026;
-    --default__highlight__colour__dark: #2740ff;
+  --default__colour: #10013f;
+  --default__highlight__colour__light: #ff9026;
+  --default__highlight__colour__dark: #2740ff;
 }
 
-body{
+body {
+  color: var(--default__colour) !important;
+  font-size: 18px !important;
+}
+
+a {
   color: var(--default__colour) !important;
 }
 
-a{
-  color: var(--default__colour) !important;
+.pathtracer__textSmallTop {
+  margin-bottom: 15px !important;
 }
 
-#copyright > ul > li > a{
+#copyright>ul>li>a {
   color: white !important;
   opacity: .4;
 }
 
-.links > li > a{
+#navPanelToggle {
+  color: white !important;
+}
+
+.links>li>a {
   color: whitesmoke !important;
 }
 
-.text__middle__page{
-    text-align: center;
+.text__middle__page {
+  text-align: center;
 }
 
-.footer__text__middle__page{
-    text-align: center;
+.footer__text__middle__page {
+  text-align: center;
 }
 
 /*-- button colour --*/
-.button__colour{
-	box-shadow: inset 0 0 0 2px var(--default__colour) !important;
-    color: var(--default__colour) !important;
+.button__colour {
+  box-shadow: inset 0 0 0 2px var(--default__colour) !important;
+  color: var(--default__colour) !important;
 }
 
-.button__colour:hover{
-    color: var(--default__highlight__colour__light) !important;
-    box-shadow: inset 0 0 0 2px var(--default__highlight__colour__light) !important;
+.button__colour:hover {
+  color: var(--default__highlight__colour__light) !important;
+  box-shadow: inset 0 0 0 2px var(--default__highlight__colour__light) !important;
 }
 
-.button__colour.primary{
-    background-color: var(--default__colour) !important;
-	box-shadow: none !important;
-    color: whitesmoke !important;
+.button__colour.primary {
+  background-color: var(--default__colour) !important;
+  box-shadow: none !important;
+  color: whitesmoke !important;
 }
 
-.button__colour.primary:hover{
-    background-color: var(--default__highlight__colour__dark) !important;
+.button__colour.primary:hover {
+  background-color: var(--default__highlight__colour__dark) !important;
 }
 
-.button__dark__hover__colour:hover{
-    color: var(--default__highlight__colour__dark) !important;
-    box-shadow: inset 0 0 0 2px var(--default__highlight__colour__dark) !important;
+.button__dark__hover__colour:hover {
+  color: var(--default__highlight__colour__dark) !important;
+  box-shadow: inset 0 0 0 2px var(--default__highlight__colour__dark) !important;
 }
 
-.button__light__hover__colour:hover{
-    color: var(--default__highlight__colour__light) !important;
-    box-shadow: inset 0 0 0 2px var(--default__highlight__colour__light) !important;
+.button__light__hover__colour:hover {
+  color: var(--default__highlight__colour__light) !important;
+  box-shadow: inset 0 0 0 2px var(--default__highlight__colour__light) !important;
 }
 
 /*-- text colour --*/
-.text__colour{
-    color: var(--default__colour) !important;
+.text__colour {
+  color: var(--default__colour) !important;
 }
 
-.text__colour.light__hover{
-    color: var(--default__highlight__colour__light) !important;
+.text__colour.light__hover {
+  color: var(--default__highlight__colour__light) !important;
 }
 
 
 /*-- hover colour --*/
-.dark__hover{
-    color: inherit !important;
-    border-color: inherit !important;
-}
-.dark__hover:hover{
-    color: var(--default__highlight__colour__dark) !important;
-    border-color: var(--default__highlight__colour__dark) !important;
+.dark__hover {
+  color: inherit !important;
+  border-color: inherit !important;
 }
 
-.light__hover{
-    color : inherit !important;
-    border-color: inherit !important;
+.dark__hover:hover {
+  color: var(--default__highlight__colour__dark) !important;
+  border-color: var(--default__highlight__colour__dark) !important;
 }
-.light__hover:hover{
-    color: var(--default__highlight__colour__light) !important;
-    border-color: var(--default__highlight__colour__light) !important;
+
+.light__hover {
+  color: inherit !important;
+  border-color: inherit !important;
+}
+
+.light__hover:hover {
+  color: var(--default__highlight__colour__light) !important;
+  border-color: var(--default__highlight__colour__light) !important;
 }
 
 #nav ul.links li.active a {
-    color: var(--default__colour) !important;
+  color: var(--default__colour) !important;
 }
-#nav ul.links li.active.dark__hover a:hover{
-    color: var(--default__highlight__colour__dark) !important;
+
+#nav ul.links li.active.dark__hover a:hover {
+  color: var(--default__highlight__colour__dark) !important;
 }
 
 
-#intro h1{
-    color:whitesmoke !important;
-}
-h1{
-    color: var(--default__colour) !important;
+#intro h1 {
+  color: whitesmoke !important;
 }
 
-.icon__blue{
+h1 {
+  color: var(--default__colour) !important;
+}
+
+.icon__blue {
   color: #717981 !important;
 }
 
 /* --- about me --- */
 
-.aboutMe__discover__container{
+.aboutMe__discover__container {
   display: flex;
   justify-content: center;
 }
 
-.youtube__iframe{
+.youtube__iframe {
   width: 100%;
   max-width: 560px;
 }
 
 /* --- about me --- */
 
-.cubed__myTeam__container{
+.cubed__myTeam__container {
   margin-top: 30px;
   margin-bottom: 20px;
 
@@ -131,43 +144,53 @@ h1{
   grid-gap: 2rem;
 }
 
-.cubed__myTeam__container > article > p{
+.cubed__myTeam__container>article>p {
   margin-bottom: 10px !important;
 }
 
-.fancy__streepje{
+.fancy__streepje {
   border-right: 1px solid lightgrey;
   height: 100%;
 }
 
 
-img.image__round__corners{
+img.image__round__corners {
   border-radius: 50% !important;
 }
 
-button.full__story__margin{
+button.full__story__margin {
   margin-top: 10px !important;
 }
 
-img.image__resize__with__screen{
+img.image__resize__with__screen {
   width: 100% !important;
-  height: auto !important;
 }
 
-.background__cubed > div.bg{
+.background__cubed>div.bg {
   background-image: url("../../images/cubed/background.jpg") !important;
-	width: 100% !important;
-	height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
   display: block !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
-img.image_centered{
-  display: flex !important;
-  justify-content: center !important;
+img.image_centered {
+  display: flex;
+  justify-content: center;
 }
 
-.image__center__paragraph{
-  display: flex !important;
-  flex-flow: column !important;
-  align-items: center !important;
+@media only screen and (max-width: 980px) {
+  .links>li>a {
+    color: black !important;
+  }
+
+  .icons>li>a {
+    color: black !important;
+  }
+}
+
+.icons__cubed>li>a,
+.links__cubed>li>a {
+  color: black !important;
 }
