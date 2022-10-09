@@ -192,5 +192,5 @@ img.image_centered {
 
 .icons__cubed>li>a,
 .links__cubed>li>a {
-  color: black !important;
+  color: var(--default__colour) !important;
 }
