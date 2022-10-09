@@ -59,6 +59,11 @@ a {
   background-color: var(--default__highlight__colour__dark) !important;
 }
 
+.button__dark__hover__colour{
+  color: var(--default__colour) !important;
+  box-shadow: inset 0 0 0 2px var(--default__colour) !important;
+}
+
 .button__dark__hover__colour:hover {
   color: var(--default__highlight__colour__dark) !important;
   box-shadow: inset 0 0 0 2px var(--default__highlight__colour__dark) !important;
@@ -193,4 +198,14 @@ img.image_centered {
 .icons__cubed>li>a,
 .links__cubed>li>a {
   color: var(--default__colour) !important;
+}
+
+.cubed__team__right__aligned{
+  text-align: right !important;
+  margin-right: 30px;
+}
+
+.cubed__team__title__right__aligned{
+  text-align: right !important;
+  margin-right: 30px;
 }
