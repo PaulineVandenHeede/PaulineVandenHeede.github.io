@@ -64,7 +64,54 @@
                 </p>
                 <h3>Approach</h3>
                 <p>
-                    text.
+                    When it was hard to discover how I needed to pass pointers and vectors of pointers I made a try out project so that I could debug this faster then in unity itself.
+                    This way I was able to work faster and deliver the wanted behaviour faster.
+
+                    To return a vector with pointers in C++ towards C# you need to give the first element and the length. 
+                    The first element is in this case even a reference of a const pointer to a pointer.
+                    <pre class="code__snippet">
+                        <code>
+CPPLIBRARY_API void CallGetGameObjectContainer(CppLibrary::GameManager* pGame, 
+    CppLibrary::ObjectContainerType type, CppLibrary::GameObject* const*& pFirstElement, 
+    unsigned long& pLength)
+{
+    if (!pGame)
+	return;
+
+	const std::vector<CppLibrary::GameObject*>& objects = pGame->GetGameObjectContainer(type);
+	pLength = static_cast<unsigned long>(objects.size());
+    pFirstElement = objects.data();
+}
+                        </code>
+                    </pre>
+
+                    When you want to loop over these elements in C# code you get:
+                    <pre = class="code__snippet">
+                        <code>
+List<GameObject> objects = new List<GameObject>();
+
+IntPtr firstObject = IntPtr.Zero;
+ulong size = 0;
+CallGetGameObjectContainer(_nativePtr, type, ref firstObject, ref size);
+                    
+if (size == 0)
+    return objects;
+                    
+GameObject temp = null;
+IntPtr pTemp = IntPtr.Zero;
+for (ulong i = 0; i < size; i++)
+{
+    unsafe
+    {
+        pTemp = ((IntPtr*)firstObject.ToPointer())[i];
+        temp = (GameObject)Marshal.PtrToStructure(pTemp, typeof(GameObject));
+    }
+
+    objects.Add(temp);
+}
+return objects;
+                        </code>
+                    </pre>
                 </p>
                 <h3>Results</h3>
                 <p>

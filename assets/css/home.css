@@ -209,3 +209,7 @@ img.image_centered {
   text-align: right !important;
   margin-right: 30px;
 }
+
+.code__snippet{
+  margin-top: 0px !important;
+}
