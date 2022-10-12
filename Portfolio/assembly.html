@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Project title</title>
+    <title>Project - Assembly</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -48,17 +48,57 @@
             <!-- Post -->
             <section class="post">
                 <header class="major">
-                    <span class="date">Date</span>
+                    <span class="date">March, 2019</span>
                     <h1>
-                        Assembly project
+                        Chicken run: an assembly project
                     </h1>
                     <h3>
                         Abstract
                     </h3>
                     <p>
-                        abstract text.
+                        Meet Ghunter, the anxiety packed chicken! Years past after Ghunter lost his son to a flower allergy. His wife got into a cloud overdose not long after that...
+                        Now both the flowers and clouds have returned to finish their job on the miserable Ghunter! Try to dodge a smany pesky flowers and clouds as possible to keep Ghutner alive!
                     </p>
                 </header>
+                <h2 class="text__middle__page">The simulator</h2>
+                <p>
+                    The simulator is memory mapped:
+                </p>
+                <ul>
+                    <li>Display</li>
+                    <ul>
+                        <li>top left corner: $0200</li>
+                        <li>nottom right corner: $05FF</li>
+                    </ul>
+                    <li>Stack pointer</li>
+                    <ul>
+                        <li>start: $0100</li>
+                        <li>end: $01FF</li>
+                    </ul>
+                </ul>
+                <h3>Registers</h3>
+                <span class="image right">
+                    <img class="" src="../images/assembly/Simulator_Registers.png" alt="registers image" />
+                </span>
+                <ul>
+                     <li><b>A:</b>&emsp; accumulator register.</li> 
+                     <li><b>X,Y:</b>&emsp; index registers.</li>
+                     <li><b>SP:</b>&emsp; stack pointer.</li> 
+                     <li><b>PC:</b>&emsp; program counter</li>
+                     <li><b>P:</b>&emsp; 7 processor status flag bits</li>
+                     <ul>
+                        <li><b>N:</b>&emsp; negative > if bit 7 is set.</li>
+                        <li><b>V:</b>&emsp; overflow > if sign bit is incorrect.</li>
+                        <li><b>B:</b>&emsp; break > not affected</li>
+                        <li><b>D:</b>&emsp; decimal > not affected</li>
+                        <li><b>I:</b>&emsp; interrupt > not affected</li>
+                        <li><b>Z:</b>&emsp; zero > set if A == 0</li>
+                        <li><b>C:</b>&emsp; carry > set if overflow in bit 7</li>
+                     </ul> 
+                </ul>
+                <p>
+                    The most important flags are the zero and carry flag.
+                </p>
                 <h2 class="text__middle__page">The project</h2>
                 <h3>The research process</h3>
                 <p>
@@ -68,10 +108,23 @@
                 <p>
                     text.
                 </p>
+                <span class="assembly__video">
+                    <video width="200" height="200" controls muted>
+                        <source src="../videos/assembly/ChickenRun.mp4" type="video/mp4">
+                    </video>
+                </span>
+                
                 <h3>Results</h3>
                 <p>
-                    text.
+                    I made this project together with Celine Vandewalle. 
+                    I stood in:
                 </p>
+                <ul>
+                    <li>Background implementation.</li>
+                    <li>Start and pause button.</li>
+                    <li>Further implementation of Ghunter the chicken.</li>
+                    <li>Cloud implementatio</li>
+                </ul>
                 <div class="widget">
                     <div class="buttons">
                       <input type="button" value="Assemble" class="assembleButton" />
@@ -79,10 +132,12 @@
                       <input type="button" value="Reset" class="resetButton" />
                       <input type="button" value="Hexdump" class="hexdumpButton" />
                       <input type="button" value="Disassemble" class="disassembleButton" />
-                      <input type="button" value="Notes" class="notesButton" />
                     </div>
               
-                    <textarea class="code"></textarea>
+                    <textarea class="code">
+
+
+                    </textarea>
               
                     <canvas class="screen" width="160" height="160"></canvas>
               
@@ -107,39 +162,9 @@
                     </div>
                     <div class="monitor"><pre><code></code></pre></div>
                     <div class="messages"><pre><code></code></pre></div>
-              
-                    <div class="notes" style="display: none">Notes:
-              
-              Memory location $fe contains a new random byte on every instruction.
-              Memory location $ff contains the ascii code of the last key pressed.
-              
-              Memory locations $200 to $5ff map to the screen pixels. Different values will
-              draw different colour pixels. The colours are:
-              
-              $0: Black
-              $1: White
-              $2: Red
-              $3: Cyan
-              $4: Purple
-              $5: Green
-              $6: Blue
-              $7: Yellow
-              $8: Orange
-              $9: Brown
-              $a: Light red
-              $b: Dark grey
-              $c: Grey
-              $d: Light green
-              $e: Light blue
-              $f: Light grey
-                  </div>
                 <h3>Links</h3>
                 <p>
-                    To read and see more details about what I learned in this project I kindly refer to my written article and the accompanied code base about this topic .
-                    <ul class="actions">
-                        <li><a href="../PDFs/test.pdf" class="button icon solid button__colour fa-download">Article</a></li>
-                        <li><a href="github link" class="button button__colour primary icon solid  fa-download">Code base</a></li>
-                    </ul>
+                    Tutotial + simulator can be found at <a href="https://skilldrick.github.io/easy6502/">skilldrick's easy 6502 site</a>
                 </p>
             </section>
 

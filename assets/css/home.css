@@ -213,3 +213,9 @@ img.image_centered {
 .code__snippet{
   margin-top: 0px !important;
 }
+
+/* Assembly */
+.assembly__video {
+  width: 100% !important;
+  float: right !important;
+}
