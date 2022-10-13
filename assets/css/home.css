@@ -173,6 +173,7 @@ button.full__story__margin {
 
 img.image__resize__with__screen {
   width: 100% !important;
+  height: auto !important;
 }
 
 .background__cubed>div.bg {
@@ -254,4 +255,20 @@ img.image_centered {
 .icons__socials{
   display: flex;
   justify-content: center;
+}
+
+.bomberman__video{
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 50px;
+}
+
+.binding__video{
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 50px;
 }
