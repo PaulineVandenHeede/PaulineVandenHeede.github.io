@@ -57,11 +57,32 @@
                         A small unity game with C# code that calls code from a C++ dynamic library.
                     </p>
                 </header>
-                <h2 class="text__middle__page">The project</h2>
-                <h3>The research process</h3>
+                <h2 class="text__middle__page">Interopability</h2>
                 <p>
-                    text.
+                    <span class="image right"><img src="../images/interopability/interopability.png" alt="interopability image" /></span>
+                    C#/C++ interopability can be useful when we want code that has been written and compiled in different programming languages to communicate with each other.
+                    A common example for this is the game engine programming language that differs from the game editor one.
+                    <br />
+                    There are 2 ways to communicate with different programming languages; Explicit Platform Invoke also called PInvoke or Implicit Platform Invoke.
+                    In this project we worked with PInvoke, because it is not platform specific, but also does not need an intermediate library. 
+                    Not needing an intermediate library means that we can directly call managed functions.
+                    <br />
+                    When we start a PInvoke project it always consists out of 3 parts:
                 </p>
+                <ol>
+                    <li>C++ library (dll).</li>
+                    <li>C wrapper; in this we expose the function from the library.</li>
+                    <li>.NET library which marshals calls from .NET to the C wrapper and the other way around.</li>
+                </ol>
+                <span class="image"><img class="image__resize__with__screen"src="../images/interopability/3_elements_interopability.png" alt="interopability image" /></span>
+                <p>
+                    When we want to export the function we can force the compiler to export it as it was a C function, thus preventing C++ mangling.
+                    To avoid using an entry point for our function we can make sure that both of the names of the function match, avoiding an explecit identification.
+                    <br/>
+                    To be able to transfer the data between the two programming languages we need to transform the memory representation, which is also called marshaling.
+                    For blittable types, e.g. the most data types that have a common representation, you do not need to do anything special.
+                </p>
+                <h2 class="text__middle__page">The project</h2>
                 <h3>Approach</h3>
                 <p>
                     When it was hard to discover how I needed to pass pointers and vectors of pointers I made a try out project so that I could debug this faster then in unity itself.
@@ -113,17 +134,14 @@ return objects;
                         </code>
                     </pre>
                 </p>
-                <h3>Results</h3>
-                <p>
-                    text.
-                </p>
-
                 <h3>Links</h3>
                 <p>
-                    To read and see more details about what I learned in this project I kindly refer to my written article and the accompanied code base about this topic .
+                    A lot of information came from the microsoft documentation that can be found by following the website link.
+                    The visuals come from a given powerpoint during a class from game tech, this can also be found in the github repository.
+                    To see and run the full project, check out my github repository!
                     <ul class="actions">
-                        <li><a href="../PDFs/test.pdf" class="button icon solid button__colour fa-download">Article</a></li>
-                        <li><a href="https://github.com/PaulineVandenHeede/Cs_Cpp_Interopability" class="button button__colour primary icon solid  fa-search">Code base</a></li>
+                        <li><a href="https://learn.microsoft.com/en-us/dotnet/framework/interop/interop-marshalling" class="button button__colour primary icon solid  fa-search">Microsoft documentation</a></li>
+                        <li><a href="https://github.com/PaulineVandenHeede/Cs_Cpp_Interopability" class="button button__colour primary icon solid brands alt fa-github">Github repository</a></li>
                     </ul>
                 </p>
             </section>
