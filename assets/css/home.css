@@ -250,3 +250,8 @@ img.image_centered {
   display: grid;
   grid-template-columns: 100px 1fr;
 }
+
+.icons__socials{
+  display: flex;
+  justify-content: center;
+}
