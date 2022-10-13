@@ -80,44 +80,94 @@
                 <span class="image right">
                     <img class="" src="../images/assembly/Simulator_Registers.png" alt="registers image" />
                 </span>
-                <ul>
-                     <li><b>A:</b>&emsp; accumulator register.</li> 
-                     <li><b>X,Y:</b>&emsp; index registers.</li>
-                     <li><b>SP:</b>&emsp; stack pointer.</li> 
-                     <li><b>PC:</b>&emsp; program counter</li>
-                     <li><b>P:</b>&emsp; 7 processor status flag bits</li>
-                     <ul>
-                        <li><b>N:</b>&emsp; negative > if bit 7 is set.</li>
-                        <li><b>V:</b>&emsp; overflow > if sign bit is incorrect.</li>
-                        <li><b>B:</b>&emsp; break > not affected</li>
-                        <li><b>D:</b>&emsp; decimal > not affected</li>
-                        <li><b>I:</b>&emsp; interrupt > not affected</li>
-                        <li><b>Z:</b>&emsp; zero > set if A == 0</li>
-                        <li><b>C:</b>&emsp; carry > set if overflow in bit 7</li>
-                     </ul> 
+                <ul class="assembly__registerList">
+                     <li><b>A</b>&emsp; accumulator register.</li>
+                     <li><b>X,Y</b>&emsp; index registers.</li>
+                     <li><b>SP</b>&emsp; stack pointer.</li>
+                     <li><b>PC</b>&emsp; program counter</li>
+                     <li><b>P</b>&emsp; 7 processor status flag bits</li>
+                     <ul class="assembly__registerList__flags">
+                        <li><b>N</b>&emsp; negative > if bit 7 is set.</li>
+                        <li><b>V</b>&emsp; overflow > if sign bit is incorrect.</li>
+                        <li><b>B</b>&emsp; break > not affected</li>
+                        <li><b>D</b>&emsp; decimal > not affected</li>
+                        <li><b>I</b>&emsp; interrupt > not affected</li>
+                        <li><b>Z</b>&emsp; zero > set if A == 0</li>
+                        <li><b>C</b>&emsp; carry > set if overflow in bit 7</li>
+                     </ul>
                 </ul>
                 <p>
                     The most important flags are the zero and carry flag.
                 </p>
-                <h2 class="text__middle__page">The project</h2>
-                <h3>The research process</h3>
+                <h2 class="text__middle__page">Assembly: the baby steps</h2>
+                <h3>The difference between #$01 and $01</h3>
                 <p>
-                    text.
+                    If you use LDA #$10; then you will store the hexadecimal value $01 in register A.
+                    If you use LDA $01; then you will store the hexadecimal value in memory place $01 in register A.
                 </p>
-                <h3>Approach</h3>
+                <h3>Most used instructions</h3>
+                <ul class= "assembly__instructions__list">
+                    <li><b>LDA - LDX - LDY</b>&emsp; Load number into register A-X-Y.</li>
+                    <li><b>STA</b>&emsp; Store number in given memory address.</li>
+                    <li><b>TAX - TAY</b>&emsp; Transfer value in register A to register X-Y.</li>
+                    <li><b>ADC</b>&emsp; Add with carry to register A.</li>
+                    <li><b>SBC</b>&emsp; Substract with carry from register A.</li>
+                    <li><b>INX - INY</b>&emsp; Increment register X-Y.</li>
+                    <li><b>INC</b>&emsp; Increment value in given address.</li>
+                    <li><b>DEX - DEY</b>&emsp; Decrement register X-Y.</li>
+                    <li><b>DPX - CPY - CMP</b>&emsp; Compares register X-Y-given address with a value in a given address. This operation can se the flags N, Z and C if approopriate.</li>
+
+                </ul>
+                <h3>Addressing modes</h3>
                 <p>
-                    text.
+                    There are a lot of different addressing modes. The most standard one is absolute addressing, this is when you fully give the address.
+                    <br/>
+                    A variant on this is the zero page addressing mode, this is actually single-byte addressing. This will work faster than absolute addressing because you only have a 1 byte lookup. 
+                    It will also take less space in code. The only drawback about zero page addressing is that this only work for the first 256 bytes, e.g. the first page.
+                    <br/>
+                    When we talk about immediat addressing then we use the actual values instead of with the memory addresses.
+                    <br/>
+                    Relative or label addressing is used mainly for branching.
+                    <br/>
+                    With implicit addressing, you work with instructions that don't deal with memory locations but with registers, this means that the argument is implied by the instructions.
+                    <br/>
+                    Another one is that one can use indirect addressing. This means that you use an absolute address to look up another address.
+                    The first address will then be the least significant byte and the following byte will be the most significant byte.
                 </p>
-                <span class="assembly__video">
-                    <video width="200" height="200" controls muted>
-                        <source src="../videos/assembly/ChickenRun.mp4" type="video/mp4">
-                    </video>
-                </span>
-                
+                <h3>Branching</h3>
+                <p>
+                    If we want to use branching we need to be able to mark certain points in a program, this can be done by labeling.
+                    A label is a single-byte relative offset; this means you can go forward and backwards with 256 bytes.
+                    You could compare branching in assembly with an if statement in C++ code.
+                    Labeling is also used to move around in local code, a.k.a. jumping.
+                    <br/>
+                    There are different ways to branch:
+                </p>
+                <ul class="assembly__branching__list">
+                    <li><b>BBC - BCS</b>&emsp;Branch if carry clear - set.</li>
+                    <li><b>BEQ - NBE</b>&emsp;Branch if equal - not equal.</li>
+                    <li><b>BMI - BPL</b>&emsp;Branch if minus - positive.</li>
+                    <li><b>BVC - BVS</b>&emsp;Branch if overflow clear - set.</li>
+                </ul>
+                <h3>Jumping</h3>
+                <p>
+                    Jumping is the same as branching but it is unconditionally executed and it has a 2-byte absolute address.
+                    There are 3 common instructions JMP(label) this jumps to the label.
+                    And then you have the dynamic duo JSR and RTS, these two mimic functions. 
+                    The JSR instruction will push address minus one of the next instruction onto the stack. 
+                    Then the RTS will pop this location and will jump to the location plus one.
+                </p>
+                <h3>The stack</h3>
+                <p>
+                    The stack is always an important thing in programming. 
+                    Values are pushed onto it and popped off it.
+                    The current depth of this stack is measured by the stack pointer.
+                    There are 2 stack instruction namely PHA which means push accumulator and PLA, pull accumulator. These instructions only work with register A.
+                </p>
                 <h3>Results</h3>
                 <p>
-                    I made this project together with Celine Vandewalle. 
-                    I stood in:
+                    I made this project together with Celine Vandewalle.
+                    I stood in for:
                 </p>
                 <ul>
                     <li>Background implementation.</li>
@@ -125,7 +175,12 @@
                     <li>Further implementation of Ghunter the chicken.</li>
                     <li>Cloud implementatio</li>
                 </ul>
-                <div class="widget">
+                <span class="assembly__video">
+                    <video width="200" height="200" controls muted>
+                        <source src="../videos/assembly/ChickenRun.mp4" type="video/mp4">
+                    </video>
+                </span>
+                <!--<div class="widget">
                     <div class="buttons">
                       <input type="button" value="Assemble" class="assembleButton" />
                       <input type="button" value="Run" class="runButton" />
@@ -133,14 +188,14 @@
                       <input type="button" value="Hexdump" class="hexdumpButton" />
                       <input type="button" value="Disassemble" class="disassembleButton" />
                     </div>
-              
+
                     <textarea class="code">
 
 
                     </textarea>
-              
+
                     <canvas class="screen" width="160" height="160"></canvas>
-              
+
                     <div class="debugger">
                       <input type="checkbox" class="debug" name="debug" />
                       <label for="debug">Debugger</label>
@@ -150,21 +205,33 @@
                         <input type="button" value="Jump to ..." class="gotoButton" />
                       </div>
                     </div>
-              
+
                     <div class="monitorControls">
                       <label for="monitoring">Monitor</label>
                       <input type="checkbox" class="monitoring" name="monitoring" />
-              
+
                       <label for="start">Start: $</label>
                       <input type="text" value="0" class="start" name="start" />
                       <label for="length">Length: $</label>
                       <input type="text" value="ff" class="length" name="length" />
                     </div>
                     <div class="monitor"><pre><code></code></pre></div>
-                    <div class="messages"><pre><code></code></pre></div>
+                    <div class="messages"><pre><code></code></pre></div>-->
                 <h3>Links</h3>
                 <p>
-                    Tutotial + simulator can be found at <a href="https://skilldrick.github.io/easy6502/">skilldrick's easy 6502 site</a>
+                    Where I got the knowledge:
+                </p>
+                <ul>
+                    <li>Tutotial + simulator can be found at <a href="https://skilldrick.github.io/easy6502/">skilldrick's easy 6502 site</a>.</li>
+                    <li>Instruction set information can be found at both <a href="http://www.6502.org/tutorials/6502opcodes.html#CPX">6502.org</a> 
+                        and <a href="http://www.obelisk.me.uk/6502/reference.html#CMP">obelisk.me.uk</a>.</li>
+                        <li>General information about the MOS 6502 can be found at the <a href="https://en.wikipedia.org/wiki/MOS_Technology_6502">wikipedia site</a>.</li>
+                </ul>
+                <p>
+                    To see the assembly code in detail I kindly refer to the github repository.
+                    <ul class="actions">
+                        <li><a href="https://github.com/PaulineVandenHeede/ChickenRun" class="button button__colour primary icon solid brands alt fa-github">Repository</a></li>
+                    </ul>
                 </p>
             </section>
 

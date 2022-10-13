@@ -22,7 +22,11 @@ a {
   opacity: .4;
 }
 
-#navPanelToggle {
+#navPanelToggle.alt {
+  color: var(--default__colour) !important;
+}
+
+#navPanelToggle{
   color: white !important;
 }
 
@@ -216,6 +220,33 @@ img.image_centered {
 
 /* Assembly */
 .assembly__video {
+  margin-bottom: 50px;
   width: 100% !important;
-  float: right !important;
+  display: flex;
+  justify-content: center;
+}
+
+.assembly__registerList > li{
+  display: grid;
+  grid-template-columns: 25px 1fr;
+}
+
+.assembly__registerList > ul > li{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+}
+
+.assembly__registerList__flags{
+  margin-left: 40px;
+}
+
+
+.assembly__instructions__list > li{
+  display: grid;
+  grid-template-columns: 155px 1fr;
+}
+
+.assembly__branching__list > li{
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
