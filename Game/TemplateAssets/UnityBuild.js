@@ -30,11 +30,11 @@ updateBannerVisibility();
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/TEST_MOBILE_02.loader.js";
+var loaderUrl = buildUrl + "/Game.loader.js";
 var config = {
-dataUrl: buildUrl + "/TEST_MOBILE_02.data.unityweb",
-frameworkUrl: buildUrl + "/TEST_MOBILE_02.framework.js.unityweb",
-codeUrl: buildUrl + "/TEST_MOBILE_02.wasm.unityweb",
+dataUrl: buildUrl + "/Game.data.unityweb",
+frameworkUrl: buildUrl + "/Game.framework.js.unityweb",
+codeUrl: buildUrl + "/Game.wasm.unityweb",
 streamingAssetsUrl: "StreamingAssets",
 companyName: "DefaultCompany",
 productName: "Grp12_Ketnet",
@@ -61,9 +61,9 @@ canvas.className = "unity-mobile";
 
 // To lower canvas resolution on mobile devices to gain some
 // performance, uncomment the following line:
-// config.devicePixelRatio = 1;
+config.devicePixelRatio = 1;
 
-unityShowBanner('WebGL builds are not supported on mobile devices.');
+//unityShowBanner('WebGL builds are not supported on mobile devices.');
 } else {
 // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
