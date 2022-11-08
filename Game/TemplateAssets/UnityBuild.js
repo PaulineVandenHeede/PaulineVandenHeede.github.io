@@ -30,11 +30,19 @@ updateBannerVisibility();
 }
 
 var buildUrl = "Build";
+<<<<<<< Updated upstream
 var loaderUrl = buildUrl + "/Game.loader.js";
 var config = {
 dataUrl: buildUrl + "/Game.data.unityweb",
 frameworkUrl: buildUrl + "/Game.framework.js.unityweb",
 codeUrl: buildUrl + "/Game.wasm.unityweb",
+=======
+var loaderUrl = buildUrl + "/TEST_MOBILE_03.loader.js";
+var config = {
+dataUrl: buildUrl + "/TEST_MOBILE_03.data.unityweb",
+frameworkUrl: buildUrl + "/TEST_MOBILE_03.framework.js.unityweb",
+codeUrl: buildUrl + "/TEST_MOBILE_03.wasm.unityweb",
+>>>>>>> Stashed changes
 streamingAssetsUrl: "StreamingAssets",
 companyName: "DefaultCompany",
 productName: "Grp12_Ketnet",
