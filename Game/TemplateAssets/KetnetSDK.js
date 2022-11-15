@@ -140,6 +140,31 @@ function saveMovieMp4ToCameraRoll() {
     });
 }
 
+function saveHighscore(highscore) {
+    sdk.state.saveState('highscore', 'highscore_list', highscore, highscore).then(function(){
+        loadHighscore();
+    });
+
+    // if (sdk.user.isLoggedIn()) {
+    //     sdk.state.saveState('highscore', 'highscore_list', highscore, highscore).then(function(){
+    //         loadHighscore();
+    //     });
+    // }
+    // else {
+    //     sdk.user.triggerLogin();
+    // }
+    
+}
+
+function loadHighscore()
+{
+    sdk.state.loadState('highscore', 'highschore_list', true)
+    .then(function (state) {
+        storedState.innerText = JSON.stringify(state, null, 2)
+        MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', JSON.stringify(state, null, 2));
+    });
+}
+
 function saveState() {
     var value = document.getElementById('stateValue').value;
     var largeValue = document.getElementById('stateLargeValue').value;
