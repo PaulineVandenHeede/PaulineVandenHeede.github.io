@@ -30,11 +30,11 @@ updateBannerVisibility();
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/html.loader.js";
+var loaderUrl = buildUrl + "/Game.loader.js";
 var config = {
-dataUrl: buildUrl + "/html.data.unityweb",
-frameworkUrl: buildUrl + "/html.framework.js.unityweb",
-codeUrl: buildUrl + "/html.wasm.unityweb",
+dataUrl: buildUrl + "/Game.data.unityweb",
+frameworkUrl: buildUrl + "/Game.framework.js.unityweb",
+codeUrl: buildUrl + "/Game.wasm.unityweb",
 streamingAssetsUrl: "StreamingAssets",
 companyName: "DefaultCompany",
 productName: "Grp12_Ketnet",
@@ -74,13 +74,11 @@ canvas.style.height = "600px";
 loadingBar.style.display = "block";
 
 var script = document.createElement("script");
-var myGameInstance = null;
 script.src = loaderUrl;
 script.onload = () => {
 createUnityInstance(canvas, config, (progress) => {
     progressBarFull.style.width = 100 * progress + "%";
 }).then((unityInstance) => {
-    myGameInstance = unityInstance;
     loadingBar.style.display = "none";
     fullscreenButton.onclick = () => {
     unityInstance.SetFullscreen(1);
