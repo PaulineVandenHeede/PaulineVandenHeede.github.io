@@ -23,7 +23,7 @@ function _ketnetSDKEventListener(event) {
 
 //actual SDK instantiation
 var sdk = ketnetSDK.createSDK(_ketnetSDKEventListener);
-document.getElementById('stateValue')
+
 // Change the visibility and contents of a div
 function _showNotification(elementId, innerText) {
     var divElement = document.getElementById(elementId);
@@ -140,12 +140,30 @@ function saveMovieMp4ToCameraRoll() {
     });
 }
 
+function saveHighscore(highscore) {
+    sdk.state.saveState('highscore', 'highscore_list', highscore, '0').then(function(){
+        console.log(highscore + '0');
+        loadHighscore();
+    }).catch(function(error) { console.error({ error }) });
+}
+
+function loadHighscore()
+{
+    sdk.state.loadState('highscore', 'highschore_list', true)
+    .then(function (state) {
+        document.getElementById('storedstate').textContent = JSON.stringify(state, null, 2);
+        console.log(JSON.stringify(state, null, 2));
+        //storedState.innerText = JSON.stringify(state, null, 2)
+        MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', JSON.stringify(state, null, 2));
+    }).catch(function(error){ console.error({ error }) });
+}
+
 function saveState() {
     var value = document.getElementById('stateValue').value;
     var largeValue = document.getElementById('stateLargeValue').value;
     sdk.state.saveState('test-state-id', 'test-list-id', value, largeValue).then(function() {
     loadState();
-    }).catch(function (error) { console.error({ error })});
+    }).catch(function (error) { console.error({ error }) });
 }
 
 function loadState() {
