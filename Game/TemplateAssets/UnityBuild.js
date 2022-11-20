@@ -30,11 +30,11 @@ updateBannerVisibility();
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/TEST_MOBILE_03.loader.js";
+var loaderUrl = buildUrl + "/TEST_MULTITOUCH_01.loader.js";
 var config = {
-dataUrl: buildUrl + "/TEST_MOBILE_03.data.unityweb",
-frameworkUrl: buildUrl + "/TEST_MOBILE_03.framework.js.unityweb",
-codeUrl: buildUrl + "/TEST_MOBILE_03.wasm.unityweb",
+dataUrl: buildUrl + "/TEST_MULTITOUCH_01.data.unityweb",
+frameworkUrl: buildUrl + "/TEST_MULTITOUCH_01.framework.js.unityweb",
+codeUrl: buildUrl + "/TEST_MULTITOUCH_01.wasm.unityweb",
 streamingAssetsUrl: "StreamingAssets",
 companyName: "DefaultCompany",
 productName: "Grp12_Ketnet",
@@ -67,8 +67,8 @@ config.devicePixelRatio = 1;
 } else {
 // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-canvas.style.width = "960px";
-canvas.style.height = "600px";
+//canvas.style.width = "1600px";
+//canvas.style.height = "900px";
 }
 
 loadingBar.style.display = "block";

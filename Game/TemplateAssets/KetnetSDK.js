@@ -1,3 +1,17 @@
+// https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html
+
+document.addEventListener('touchstart', e => {
+    console.log(e);
+    //MyGameInstance.SendMessage('GameState', 'NumberOfTouches', e.touches.length);
+});
+
+document.addEventListener('touchend', e => {
+    console.log(e);
+    //MyGameInstance.SendMessage('GameState', 'NumberOfTouchesLetGo', e.touches.length);
+});
+
+
+
 function _ketnetSDKEventListener(event) {
     console.log({ 'ketnet->game': event.type });
     switch (event.type) {
@@ -144,7 +158,11 @@ function saveHighscore(highscore) {
     sdk.state.saveState('highscore', 'highscore_list', highscore, '0').then(function(){
         console.log(highscore + '0');
         loadHighscore();
-    }).catch(function(error) { console.error({ error }) });
+    }).catch(function(error) { 
+        console.error({ error });
+
+        MyGameInstance.SendMessage('GameState', 'SendMessageToGame', '0');
+    });
 }
 
 function loadHighscore()
@@ -155,7 +173,10 @@ function loadHighscore()
         console.log(JSON.stringify(state, null, 2));
         //storedState.innerText = JSON.stringify(state, null, 2)
         MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', JSON.stringify(state, null, 2));
-    }).catch(function(error){ console.error({ error }) });
+    }).catch(function(error){ 
+        console.error({ error });
+        MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', '0');
+    });
 }
 
 function saveState() {
