@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Grp12_Ketnet</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script type="text/javascript" src="https://static.ketnet.be/ketnet-sdk/ketnet-embed.js"></script>
+  </head>
+  <body>
+    <pre id="gamedata">
+      {
+      "id": "content/ketnet/nl/spelen/g/sdk-test-suite.model.json",
+      "name": "SDK Test Suite",
+      "permissions": [
+        "USERPROFILE",
+        "DATASTORAGE"
+      ],
+      "isInApp": false,
+      "appVersion": null
+      }
+    </pre>
+    <pre id="storedstate">
+      {
+        "highscore": "HIGHSCORE"
+      }
+    </pre>
+    <div id="unity-container" class="unity-desktop  unity__middle__screen">
+      <canvas id="unity-canvas" class="unity__rescale" width=1600 height=900></canvas>
+    </div>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-fullscreen-button"></div>
+      <div id="unity-warning"> </div>
+      <!--<div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-build-title">Grp12_Ketnet</div>
+      </div> 
+    </div>-->
+    <script src="TemplateAssets/UnityBuild.js"></script>
+    <script src="TemplateAssets/KetnetSDK.js"></script>
+  </body>
+</html>

@@ -1,15 +1,19 @@
 // https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html
-
-document.addEventListener('touchstart', e => {
+canvas.addEventListener('touchstart', e => {
     console.log(e);
-    //MyGameInstance.SendMessage('GameState', 'NumberOfTouches', e.touches.length);
+    myGameInstance.SendMessage('GameState', 'NumberOfTouches', e.touches.length);
+    myGameInstance.SendMessage('GameState', 'TouchEvent', e.tou)
+
+    for(let i = 0; i < e.touches.length; i++)
+    {
+        myGameInstance.SendMessage('GameState', 'TouchEvent', e.touches[i].screenX, e.touches[i].screenY, e.touches[i].identifier);
+    }
 });
 
-document.addEventListener('touchend', e => {
+canvas.addEventListener('touchend', e => {
     console.log(e);
-    //MyGameInstance.SendMessage('GameState', 'NumberOfTouchesLetGo', e.touches.length);
+    myGameInstance.SendMessage('GameState', 'NumberOfTouchesLetGo', e.touches.length);
 });
-
 
 
 function _ketnetSDKEventListener(event) {
