@@ -2,7 +2,7 @@
 canvas.addEventListener('touchstart', e => {
     console.log(e);
     myGameInstance.SendMessage('GameState', 'NumberOfTouches', e.touches.length);
-    myGameInstance.SendMessage('GameState', 'TouchEvent', e.tou)
+    //myGameInstance.SendMessage('GameState', 'TouchEvent', e.tou)
 
     for(let i = 0; i < e.touches.length; i++)
     {
