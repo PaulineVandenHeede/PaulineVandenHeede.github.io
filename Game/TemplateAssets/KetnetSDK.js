@@ -1,18 +1,20 @@
 // https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html
 canvas.addEventListener('touchstart', e => {
     console.log(e);
-    myGameInstance.SendMessage('GameState', 'NumberOfTouches', e.touches.length);
-    //myGameInstance.SendMessage('GameState', 'TouchEvent', e.tou)
-
     for(let i = 0; i < e.touches.length; i++)
     {
-        myGameInstance.SendMessage('GameState', 'TouchEvent', e.touches[i].screenX, e.touches[i].screenY, e.touches[i].identifier);
+        let touchInfo = e.touches[i].clientX.toString() + "," + e.touches[i].clientY.toString() + "," + e.touches[i].identifier.toString();
+        myGameInstance.SendMessage('GameState', 'TouchStartEvent', touchInfo);
     }
 });
 
 canvas.addEventListener('touchend', e => {
     console.log(e);
-    myGameInstance.SendMessage('GameState', 'NumberOfTouchesLetGo', e.touches.length);
+
+    for(let i = 0; i < e.changedTouches.length; i++)
+    {
+        myGameInstance.SendMessage('GameState', 'TouchReleaseEvent', e.changedTouches[i].identifier.toString());
+    }
 });
 
 
@@ -159,6 +161,9 @@ function saveMovieMp4ToCameraRoll() {
 }
 
 function saveHighscore(highscore) {
+    sdk.user.isLoggedIn
+
+
     sdk.state.saveState('highscore', 'highscore_list', highscore, '0').then(function(){
         console.log(highscore + '0');
         loadHighscore();
