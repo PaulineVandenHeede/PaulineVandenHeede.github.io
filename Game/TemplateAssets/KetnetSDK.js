@@ -160,32 +160,45 @@ function saveMovieMp4ToCameraRoll() {
     });
 }
 
-function saveHighscore(highscore) {
-    sdk.user.isLoggedIn
+function saveHighscore(highscoreString, highscoreNumber) {
+    // var loggedIn = sdk.user.isLoggedIn();
 
+    // if(!loggedIn)
+    // {
+    //     console.log('not logged in!');
+    //     myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
+    //     return;
+    // }
 
-    sdk.state.saveState('highscore', 'highscore_list', highscore, '0').then(function(){
-        console.log(highscore + '0');
-        loadHighscore();
+    sdk.state.saveState(highscoreString, 'highscore_list', highscoreNumber, '0').then(function(){
+        console.log(highscoreNumber + ' 0');
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' is saved in state ' +  highscoreString);
     }).catch(function(error) { 
         console.error({ error });
-
-        MyGameInstance.SendMessage('GameState', 'SendMessageToGame', '0');
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' is not saved');
     });
 }
 
-function loadHighscore()
+function loadHighscore(highscoreString)
 {
-    sdk.state.loadState('highscore', 'highschore_list', true)
+    sdk.state.loadState(highscoreString, 'highschore_list', true)
     .then(function (state) {
         document.getElementById('storedstate').textContent = JSON.stringify(state, null, 2);
         console.log(JSON.stringify(state, null, 2));
-        //storedState.innerText = JSON.stringify(state, null, 2)
-        MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', JSON.stringify(state, null, 2));
+        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', highscoreString + '_' + JSON.stringify(state, null, 2));
     }).catch(function(error){ 
         console.error({ error });
-        MyGameInstance.SendMessage('GameState', 'ReceiveHighscore', '0');
+        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', '0');
     });
+}
+
+function logIn()
+{
+    if(!sdk.user.isLoggedIn())
+    {
+        sdk.user.triggerLogin();
+    }
+    return sdk.user.isLoggedIn();
 }
 
 function saveState() {
