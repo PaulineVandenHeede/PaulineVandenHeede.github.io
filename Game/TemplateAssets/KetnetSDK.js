@@ -1,19 +1,19 @@
 // https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html
 canvas.addEventListener('touchstart', e => {
-    console.log(e);
+    //console.log(e);
     var rect = canvas.getBoundingClientRect();
-    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    //console.log(rect.top, rect.right, rect.bottom, rect.left);
 
     for(let i = 0; i < e.touches.length; i++)
     {
         let touchInfo = Math.round(e.touches[i].clientX.toString() - rect.left) + "," + Math.round(e.touches[i].clientY.toString() - rect.top) + "," + e.touches[i].identifier.toString();
-        console.log(touchInfo);
+        //console.log(touchInfo);
         myGameInstance.SendMessage('GameState', 'TouchStartEvent', touchInfo);
     }
 });
 
 canvas.addEventListener('touchend', e => {
-    console.log(e);
+    //console.log(e);
 
     for(let i = 0; i < e.changedTouches.length; i++)
     {
@@ -213,6 +213,12 @@ function logIn()
     }
     return sdk.user.isLoggedIn();
 }
+
+function quitGame()
+{
+    sdk.game.exit();
+}
+
 
 function saveState() {
     var value = document.getElementById('stateValue').value;

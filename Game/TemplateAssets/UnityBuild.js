@@ -30,11 +30,11 @@ updateBannerVisibility();
 }
 
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/TEST_TOUCH_04.loader.js";
+var loaderUrl = buildUrl + "/html.loader.js";
 var config = {
-dataUrl: buildUrl + "/TEST_TOUCH_04.data.unityweb",
-frameworkUrl: buildUrl + "/TEST_TOUCH_04.framework.js.unityweb",
-codeUrl: buildUrl + "/TEST_TOUCH_04.wasm.unityweb",
+dataUrl: buildUrl + "/html.data.unityweb",
+frameworkUrl: buildUrl + "/html.framework.js.unityweb",
+codeUrl: buildUrl + "/html.wasm.unityweb",
 streamingAssetsUrl: "StreamingAssets",
 companyName: "DefaultCompany",
 productName: "Grp12_Ketnet",
