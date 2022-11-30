@@ -1,9 +1,13 @@
 // https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html
 canvas.addEventListener('touchstart', e => {
     console.log(e);
+    var rect = canvas.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+
     for(let i = 0; i < e.touches.length; i++)
     {
-        let touchInfo = e.touches[i].clientX.toString() + "," + e.touches[i].clientY.toString() + "," + e.touches[i].identifier.toString();
+        let touchInfo = Math.round(e.touches[i].clientX.toString() - rect.left) + "," + Math.round(e.touches[i].clientY.toString() - rect.top) + "," + e.touches[i].identifier.toString();
+        console.log(touchInfo);
         myGameInstance.SendMessage('GameState', 'TouchStartEvent', touchInfo);
     }
 });
@@ -161,17 +165,17 @@ function saveMovieMp4ToCameraRoll() {
 }
 
 function saveHighscore(highscoreString, highscoreNumber) {
-    // var loggedIn = sdk.user.isLoggedIn();
+    var loggedIn = sdk.user.isLoggedIn();
 
-    // if(!loggedIn)
-    // {
-    //     console.log('not logged in!');
-    //     myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
-    //     return;
-    // }
+    if(!loggedIn)
+    {
+        console.log('not logged in!');
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
+        return;
+    }
 
-    sdk.state.saveState(highscoreString, 'highscore_list', highscoreNumber, '0').then(function(){
-        console.log(highscoreNumber + ' 0');
+    sdk.state.saveState(highscoreString, 'ketnet_dae_unity_game_highscore_list', highscoreNumber, '0').then(function(){
+        console.log(highscoreNumber + 'saved in sdk');
         myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' is saved in state ' +  highscoreString);
     }).catch(function(error) { 
         console.error({ error });
@@ -181,7 +185,16 @@ function saveHighscore(highscoreString, highscoreNumber) {
 
 function loadHighscore(highscoreString)
 {
-    sdk.state.loadState(highscoreString, 'highschore_list', true)
+    var loggedIn = sdk.user.isLoggedIn();
+
+    if(!loggedIn)
+    {
+        console.log('not logged in!');
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
+        return;
+    }
+    
+    sdk.state.loadState(highscoreString, 'ketnet_dae_unity_game_highscore_list', true)
     .then(function (state) {
         document.getElementById('storedstate').textContent = JSON.stringify(state, null, 2);
         console.log(JSON.stringify(state, null, 2));
