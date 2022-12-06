@@ -47,6 +47,8 @@ function _ketnetSDKEventListener(event) {
 
 //actual SDK instantiation
 var sdk = ketnetSDK.createSDK(_ketnetSDKEventListener);
+var intialised = false;
+//console.log(sdk);
 
 // Change the visibility and contents of a div
 function _showNotification(elementId, innerText) {
@@ -91,6 +93,7 @@ function uiInitialized() {
     var permissions = sdk.game.getPermissions();
     var isInApp = sdk.game.isInApp();
     var appVersion = sdk.game.getAppVersion();
+    intialised = true;
     document.getElementById('gamedata').textContent = JSON.stringify({ id, name, permissions, isInApp, appVersion }, null, 2);
     setSession();
     _showNotification(
@@ -164,53 +167,36 @@ function saveMovieMp4ToCameraRoll() {
     });
 }
 
-function saveHighscore(highscoreString, highscoreNumber) {
-    var loggedIn = sdk.user.isLoggedIn();
-
-    if(!loggedIn)
-    {
-        console.log('not logged in!');
-        myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
-        return;
-    }
-
-    sdk.state.saveState(highscoreString, 'ketnet_dae_unity_game_highscore_list', highscoreNumber, '0').then(function(){
-        console.log(highscoreNumber + 'saved in sdk');
-        myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' is saved in state ' +  highscoreString);
+function saveHighscore(highscoreString, starsNumber, highscoreNumber) {
+    var string = highscoreString;
+    
+    sdk.state.saveState(highscoreString, 'ketnet_dae_unity_game_highscore_list', starsNumber, highscoreNumber).then(function(){
+        console.log(highscoreNumber + ' saved in sdk');
+        myGameInstance.SendMessage('GameState', 'ItemSaved');
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' with stars ' + starsNumber + ' is saved in state ' +  string);
     }).catch(function(error) { 
-        console.error({ error });
-        myGameInstance.SendMessage('GameState', 'SendMessageToGame', highscoreNumber + ' is not saved');
+        //console.error({ error });
+        myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'An error occured while saving ' + highscoreNumber + ' with stars ' + starsNumber);
     });
 }
 
 function loadHighscore(highscoreString)
 {
-    var loggedIn = sdk.user.isLoggedIn();
+    var string = highscoreString;
 
-    if(!loggedIn)
-    {
-        console.log('not logged in!');
-        myGameInstance.SendMessage('GameState', 'SendMessageToGame', 'not logged in!');
-        return;
-    }
-    
     sdk.state.loadState(highscoreString, 'ketnet_dae_unity_game_highscore_list', true)
     .then(function (state) {
-        document.getElementById('storedstate').textContent = JSON.stringify(state, null, 2);
-        console.log(JSON.stringify(state, null, 2));
-        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', highscoreString + '_' + JSON.stringify(state, null, 2));
+        //document.getElementById('storedstate').textContent = JSON.stringify(state, null, 2);
+        console.log(string + ' ' + highscoreString + ' returned ' + JSON.stringify(state,null,2));
+        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', string + '_' + JSON.stringify(state, null, 2));
     }).catch(function(error){ 
         console.error({ error });
         myGameInstance.SendMessage('GameState', 'ReceiveHighscore', '0');
     });
 }
 
-function logIn()
+function isLoggedIn()
 {
-    if(!sdk.user.isLoggedIn())
-    {
-        sdk.user.triggerLogin();
-    }
     return sdk.user.isLoggedIn();
 }
 
@@ -219,6 +205,10 @@ function quitGame()
     sdk.game.exit();
 }
 
+function sdkInitialised()
+{
+    return intialised;
+}
 
 function saveState() {
     var value = document.getElementById('stateValue').value;
