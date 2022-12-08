@@ -52,9 +52,10 @@ var intialised = false;
 
 // Change the visibility and contents of a div
 function _showNotification(elementId, innerText) {
-    var divElement = document.getElementById(elementId);
-    divElement.innerText = innerText;
-    divElement.style.visibility = 'visible';
+    // var divElement = document.getElementById(elementId);
+    // divElement.innerText = innerText;
+    // divElement.style.visibility = 'visible';
+    console.log(innerText);
 }
 
 function uiLoggedIn() {
@@ -94,7 +95,7 @@ function uiInitialized() {
     var isInApp = sdk.game.isInApp();
     var appVersion = sdk.game.getAppVersion();
     intialised = true;
-    document.getElementById('gamedata').textContent = JSON.stringify({ id, name, permissions, isInApp, appVersion }, null, 2);
+    //document.getElementById('gamedata').textContent = JSON.stringify({ id, name, permissions, isInApp, appVersion }, null, 2);
     setSession();
     _showNotification(
     'notification-init',
@@ -191,7 +192,7 @@ function loadHighscore(highscoreString)
         myGameInstance.SendMessage('GameState', 'ReceiveHighscore', string + '_' + JSON.stringify(state, null, 2));
     }).catch(function(error){ 
         console.error({ error });
-        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', '0');
+        myGameInstance.SendMessage('GameState', 'ReceiveHighscore', string + '_' + '0');
     });
 }
 
@@ -227,14 +228,16 @@ function loadState() {
 
 function updateUserData() {
     if (sdk.user.isLoggedIn()) {
-    userdata.textContent = JSON.stringify({
-        info: sdk.user.getInfo(),
-        consents: sdk.user.getConsents(),
-    }, null, 2);
-    userdata.style.display = 'block';
+    // userdata.textContent = JSON.stringify({
+    //     info: sdk.user.getInfo(),
+    //     consents: sdk.user.getConsents(),
+    // }, null, 2);
+    // userdata.style.display = 'block';
+    console.log('logged in!');
     } else {
-    userdata.textContent = '';
-    userdata.style.display = 'none';
+    // userdata.textContent = '';
+    // userdata.style.display = 'none';
+    console.log('not logged in!');
     }
 }
 
